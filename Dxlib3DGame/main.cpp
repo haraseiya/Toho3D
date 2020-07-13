@@ -2,7 +2,8 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-    int modelHandle;
+    int playerModel;
+    int enemyModel;
 
     VECTOR cameraPos;
 
@@ -26,31 +27,46 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     SetCameraNearFar(1.0f, 150.0f);
     SetCameraPositionAndTarget_UpVecY(cameraPos, VGet(0.0f,10.0f,0.0f));
 
-    // ３Ｄモデルの読み込み
-    modelHandle = MV1LoadModel("Assets/ModelMarisa/Marisa.pmx");
-    if (modelHandle == -1)
+    // プレイヤーモデルの読み込み
+    playerModel = MV1LoadModel("Assets/ModelMarisa/Marisa.pmx");
+    if (playerModel == -1)
     {
         printfDx("モデルの読み込みに失敗しました");
     }
 
+    // エネミーモデルの読み込み
+    enemyModel = MV1LoadModel("Assets/ModelReimu/Reimu.pmx");
+    if (playerModel == -1)
+    {
+        printfDx("モデルの読み込みに失敗しました");
+    }
 
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
     {
         // 画面をクリア
         ClearDrawScreen();
 
-        // 画面に映る位置に３Ｄモデルを移動
-        MV1SetPosition(modelHandle, VGet(0.0f, 0.0f, 0.0f));
+        // 画面に映る位置にプレイヤーモデルを移動
+        MV1SetPosition(playerModel, VGet(0.0f, 0.0f, 0.0f));
 
-        // ３Ｄモデルの描画
-        MV1DrawModel(modelHandle);
+        // プレイヤーモデルの描画
+        MV1DrawModel(playerModel);
+
+        // 画面に映る位置にエネミーモデルを移動
+        MV1SetPosition(enemyModel, VGet(5.0f, 0.0f, 0.0f));
+
+        // エネミーモデルの描画
+        MV1DrawModel(enemyModel);
 
         // 裏画面の内容を表画面に反映
         ScreenFlip();
     }
 
-    // モデルハンドルの削除
-    MV1DeleteModel(modelHandle);
+    // プレイヤーモデルの削除
+    MV1DeleteModel(playerModel);
+
+    // エネミーモデルの削除
+    MV1DeleteModel(enemyModel);
 
     // ＤＸライブラリの後始末
     DxLib_End();
