@@ -3,7 +3,7 @@
 SkyBox::SkyBox()
 {
     // スカイドームセットポジション
-    MV1SetScale(m_model, VGet(1.0f, 1.0f, 1.0f));
+    MV1SetScale(m_model, VGet(100.0f, 100.0f, 100.0f));
 }
 
 SkyBox::~SkyBox()

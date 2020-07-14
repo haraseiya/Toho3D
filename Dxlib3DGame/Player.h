@@ -7,13 +7,14 @@ public:
 	Player();
 	~Player();
 
-	const int GetPosition() const { return m_pos; }
+	const VECTOR GetPosition() const { return m_pos; }
 	void SetPosition() const;
 
 	void Load();
 	void Draw();
+	void Update();
 
 private:
 	int m_model;
-	int m_pos;
+	VECTOR m_pos;
 };

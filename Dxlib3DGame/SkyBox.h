@@ -13,7 +13,6 @@ public:
 	void Load();
 	void Draw();
 
-
 private:
 	int m_model;
 	int m_pos;
