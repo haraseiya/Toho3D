@@ -21,7 +21,7 @@ void SkyBox::SetPosition() const
 void SkyBox::Load()
 {
     // プレイヤーモデルの読み込み
-    m_model = MV1LoadModel("Assets/SkyDome/Dome_BB602.x");
+    m_model = MV1LoadModel("Assets/Model/SkyDome/Dome_BB602.x");
     if (m_model == -1)
     {
         printfDx("プレイヤーの読み込みに失敗しました");

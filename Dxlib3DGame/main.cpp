@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "Camera.h"
 #include "SkyBox.h"
+#include "Bullet.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -27,6 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     Enemy* enemy = new Enemy();
     Camera* camera = new Camera();
     SkyBox* skybox = new SkyBox();
+    Bullet* bullet = new Bullet();
 
     // ƒ‚ƒfƒ‹ƒ[ƒh
     player->Load();
@@ -53,6 +55,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
         // ƒJƒƒ‰ˆ—
         camera->Update(*player);
+
+        // ’e‚Ì•`‰æ
+        bullet->Draw();
 
         // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f
         ScreenFlip();

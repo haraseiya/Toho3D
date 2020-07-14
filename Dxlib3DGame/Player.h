@@ -16,5 +16,11 @@ public:
 
 private:
 	int m_model;
+	int m_vehicleModel;
+	int m_anim;
+	int m_attachAnimIndex;
+	float m_totalAnimTime;
+	float m_playTime;
+
 	VECTOR m_pos;
 };

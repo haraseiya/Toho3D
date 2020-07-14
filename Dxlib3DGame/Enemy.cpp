@@ -2,14 +2,11 @@
 
 Enemy::Enemy()
 {
-    m_pos.x = 0.0f;
-    m_pos.y = 10.0f;
-    m_pos.z = -50.0f;
+    // ‰ŠúˆÊ’u
+    m_pos = VGet(0.0f, 10.0f, -50.0f);
 
     // ‰Šú‚ÌŒü‚«
-    m_rotate.x = 0.0f;
-    m_rotate.y = 90.0f;
-    m_rotate.z = 0.0f;
+    m_rotate = VGet(0.0f, 90.0f, 0.0f);
 }
 
 Enemy::~Enemy()
